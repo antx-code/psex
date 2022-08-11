@@ -37,7 +37,7 @@ class AssetIO():
         return assets
 
     @logger.catch(level='ERROR')
-    def save2file(self, filename: str, ip: str, port: str, username: str, password: str):
+    def save2file(self, filename: str, ip: str, port: int, username: str, password: str):
         username = '空' if username == '' else username
         password = '空' if password == '' else password
         base_path = os.getcwd()
