@@ -1,0 +1,6 @@
+passwords:
+  - 'postgres': ''
+  - 'postgres': 'postgres'
+  - 'postgres': '123123'
+  - 'postgres': '123456'
+  - 'postgres': '123456789'

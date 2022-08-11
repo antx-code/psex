@@ -1,0 +1,8 @@
+passwords:
+  - 'default': ''
+  - 'default': 'default'
+  - 'default': '123123'
+  - 'default': '123456'
+  - 'default': '123456789'
+  - 'clickhouse': ''
+  - 'clickhouse': 'clickhouse'

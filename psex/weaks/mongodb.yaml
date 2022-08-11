@@ -1,0 +1,8 @@
+passwords:
+  - '': ''
+  - 'root': 'root'
+  - 'root': '123456'
+  - 'root': '123456789'
+  - 'admin': 'admin'
+  - 'admin': '123456'
+  - 'admin': '123456789'

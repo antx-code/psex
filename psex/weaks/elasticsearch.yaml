@@ -1,0 +1,10 @@
+passwords:
+  - 'elastic': 'changeme'
+  - 'elastic': 'elastic'
+  - 'elastic': 'password'
+  - 'elastic': 'p@ssw0rd'
+  - 'elastic': 'abc123'
+  - 'elastic': 'abc123!'
+  - 'elastic': '123123'
+  - 'elastic': '123456'
+  - 'elastic': '123456789'

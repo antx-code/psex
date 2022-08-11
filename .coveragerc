@@ -1,0 +1,7 @@
+[run]
+
+source =
+    pse
+    tests
+
+parallel = True
