@@ -24,6 +24,9 @@ class ScannerEngine(metaclass=ABCMeta):
     @logger.catch(level='ERROR')
     def poc(self, *args):
         connection = self.create_connect(*args)
+        if not connection:
+            logger.error('Connection failed, create connection error!')
+            return False
         if not self.is_connected(connection):
             logger.error('Connection failed, authentication error!')
             return False
