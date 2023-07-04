@@ -17,8 +17,8 @@ pip3 install psex
 
 ```python
 # Title: xxxxxxx
-# Author: antx
-# Email: wkaifeng2007@163.com
+# Author: antx-code
+# Email: 7877940+antx-code@users.noreply.github.com
 
 from loguru import logger
 from redis import Redis
@@ -56,7 +56,18 @@ class Scanner(ScannerEngine):
     @logger.catch(level='ERROR')
     def dia(self):
         asset_io = AssetIO()
-        ips = asset_io.get_file_assets('source_redis.csv')
+        ips = asset_io.get_file_assets('input/source_redis.csv')
+        """
+        
+        or use fofa search and parse assets to verify.
+        
+        grammar = 'xxx'
+        api_key='xxxxxxxxxxxxxxxxxxxxxx'
+        api_email='xxxx@email.com'
+        ips = asset_io.get_fofa_assets(grammar, api_key, api_email, 'fofa_redis.csv')
+        
+        """
+        
         passwords = weak_passwords('redis')
         for password in passwords:
             for ip_port in ips:

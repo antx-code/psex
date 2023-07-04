@@ -9,7 +9,7 @@ class AssetIO():
         pass
 
     @logger.catch(level='ERROR')
-    def get_fofa_assets(self, grammar: str, fofa_key: str, fofa_email: str, filename: str = None):
+    def get_fofa_assets(self, grammar: str, fofa_key: str, fofa_email: str, to_file: str = None):
         assets = []
         fofa = Fofa()
         fofa.set_config(api_key=fofa_key, api_email=fofa_email)
@@ -21,15 +21,18 @@ class AssetIO():
             for url in urls:
                 asset = url.strip().split('//')[1]
                 assets.append(asset)
-                if filename:
-                    with open(f'input/{filename}', 'a+') as f:
+                if to_file:
+                    base_path = os.getcwd()
+                    if not os.path.exists(f'{base_path}/input'):
+                        os.mkdir(f'{base_path}/input')
+                    with open(f'{base_path}/input/{to_file}', 'a+') as f:
                         f.write(asset + '\n')
         return assets
 
     @logger.catch(level='ERROR')
     def get_file_assets(self, filename: str):
         assets = []
-        with open(f'input/{filename}', 'r+') as f:
+        with open(filename, 'r+') as f:
             ips = f.readlines()
         for asset in ips:
             assets.append(asset.strip())
@@ -41,6 +44,8 @@ class AssetIO():
         username = '空' if username == '' else username
         password = '空' if password == '' else password
         base_path = os.getcwd()
+        if not os.path.exists(f'{base_path}/output'):
+            os.mkdir(f'{base_path}/output')
         target_file_path = f'{base_path}/output/{filename}.csv'
         fieldnames = ['IP', 'Port', 'Username', 'Password']
         content = {
